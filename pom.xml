@@ -32,13 +32,13 @@ configuration.
 
 	<!--....................................properties.....................................................-->
 
-	<!-- Properties for centralized configuration -->
-	<properties>
-		<!-- Default encoding for source files -->
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	
-   
-</properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.release>17</maven.compiler.release>
+	</properties>
+
+
 	<!--.................................Dependencies........................................................-->
 
 
@@ -81,7 +81,7 @@ configuration.
 
 		<!-- ExtendReport-->
 		<!--The ExtentReports dependency is used for creating visually rich and detailed test execution reports, enhancing the clarity and professionalism of your test automation projects-->
-	
+
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<dependency>
 			<groupId>com.aventstack</groupId>
@@ -92,20 +92,20 @@ configuration.
 
 		<!-- common  - io dependancy -->
 		<!--The Commons IO dependency is used for simplifying and enhancing file and stream operations in Java projects. It is especially useful for tasks like file copying, reading, writing, and monitoring, making it a must-have library for projects with significant I/O handling requirements.-->
-			<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.16.1</version>
 		</dependency>
-       <!-- Apache POI Core -->
+		<!-- Apache POI Core -->
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
 			<version>5.2.5</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -113,7 +113,31 @@ configuration.
 			<version>5.2.5</version>
 		</dependency>
 
-		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.30</version> <!-- Use the latest version -->
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>2.0.9</version> <!-- Use the latest version -->
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>2.20.0</version> <!-- Use the latest version -->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.20.0</version>
+		</dependency>
+
 	</dependencies>
 	<!--........................................build & Plugins.................................................-->
 	<!-- Compiler plugin configuration -->
@@ -128,17 +152,21 @@ configuration.
                  It ensures that your project compiles with the correct Java version, ensuring
 			compatibility and preventing potential issues when running the code
 			on different Java versions. -->
-			
-			
-			 <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-              <version>3.11.0</version> <!-- Use the latest stable version -->
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
-        </plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version> <!-- Use the latest stable version -->
+
+				<configuration>
+
+
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+
+			</plugin>
 			<!--
 			
 			<plugin>

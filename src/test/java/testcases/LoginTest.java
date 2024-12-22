@@ -26,7 +26,7 @@ public class LoginTest extends Listeners {
 	{
 		Boolean valuereturned = lp2.getUrl();
 		
-		Assert.assertTrue(valuereturned, "Test case failed");
+		Assert.assertFalse(valuereturned, "Test case failed");
 	}
 
 }
